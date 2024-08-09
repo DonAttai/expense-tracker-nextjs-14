@@ -24,8 +24,8 @@ export default function UpdateTransactionDialog({
         <DialogHeader>
           <DialogTitle>Update Transaction</DialogTitle>
           <DialogDescription>
-            Update transaction details. Click update Transaction when you're
-            done.
+            Update transaction details. Click update Transaction when
+            you&apos;re done.
           </DialogDescription>
         </DialogHeader>
         {children}

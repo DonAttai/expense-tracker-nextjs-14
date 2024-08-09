@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { Loader } from "lucide-react";
 
 import { useForm } from "react-hook-form";
@@ -50,8 +50,6 @@ export function CreateTransaction() {
     },
   });
 
-  const queryClient = useQueryClient();
-
   const { mutate, isPending } = useMutation({
     mutationFn: createTransactionAction,
     onSuccess: (data) => {
@@ -80,7 +78,7 @@ export function CreateTransaction() {
         <DialogHeader>
           <DialogTitle>Create New Transaction</DialogTitle>
           <DialogDescription>
-            Enter transaction details. Click Create Transaction when you're
+            Enter transaction details. Click Create Transaction when you&apos;re
             done.
           </DialogDescription>
         </DialogHeader>
