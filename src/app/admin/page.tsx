@@ -15,7 +15,7 @@ export default async function Admin() {
 
   if (!user) redirect("/auth/login");
 
-  const users = await db.user.findMany({});
+  const users = await db.user.findMany({ orderBy: { createdAt: "desc" } });
 
   if (user?.role !== "ADMIN") {
     return (

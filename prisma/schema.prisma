@@ -1,13 +1,17 @@
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
- 
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
 generator client {
   provider = "prisma-client-js"
   previewFeatures = ["driverAdapters", "omitApi"]
 }
 
+ datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
 
 model User {
   id            String          @id @default(cuid())
@@ -79,7 +83,7 @@ model Transaction{
   amount        Float
   type          TransactionType @default(EXPENSE)
   userId        String
-  user          User            @relation(fields: [userId], references: [id])
+  user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
 
 
   createdAt DateTime @default(now())
