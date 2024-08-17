@@ -40,14 +40,14 @@ export const columns: ColumnDef<Transaction>[] = [
       return <div className="font-medium">{formatted}</div>;
     },
   },
-  {
-    accessorKey: "createdAt",
-    header: () => <div>Created At</div>,
-    cell: ({ row }) => {
-      const date = new Date(row.getValue("createdAt"));
-      return <div> {date.toLocaleDateString()}</div>;
-    },
-  },
+  // {
+  //   accessorKey: "createdAt",
+  //   header: () => <div>Created At</div>,
+  //   cell: ({ row }) => {
+  //     const date = new Date(row.getValue("createdAt"));
+  //     return <div> {date.toLocaleDateString()}</div>;
+  //   },
+  // },
   {
     id: "actions",
     cell: ({ row }) => {
