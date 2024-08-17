@@ -44,8 +44,8 @@ export const columns: ColumnDef<Transaction>[] = [
     accessorKey: "createdAt",
     header: () => <div>Created At</div>,
     cell: ({ row }) => {
-      const date = formatTime(row.getValue("createdAt"));
-      return <div> {date}</div>;
+      const date = new Date(row.getValue("createdAt"));
+      return <div> {date.toLocaleDateString()}</div>;
     },
   },
   {
